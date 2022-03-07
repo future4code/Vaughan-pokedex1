@@ -1,4 +1,5 @@
 import Header from "./components/Header/Header";
+import HomePage from "./pages/HomePage/HomePage";
 import { GlobalStyle } from "./styled-app";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
       <GlobalStyle/>
         <Header/>
        <h1>APP</h1>
+       <HomePage/>
     </div>
   );
 }
