@@ -1,33 +1,37 @@
 import React from "react";
 import Header from "../../components/Header/Header";
+import { baseURL } from "../../constants/baseURL";
+import useRequestData from "../../hooks/useRequestData";
 import { goToHomePage } from "../../routers/coordenation";
 import { NameContainer, Container, TypeContainer, Images, StatsContainer } from './styled';
+
 const Details = () => {
-  return (
-    <div>
+  const [data, arrayData] = useRequestData([], `${baseURL}/pokemon/`);
+  const pokemons = arrayData && arrayData.map((item) => {
+    return (  
+    <div key={item.id}>
       <div>
         <Header goto={goToHomePage} title="Voltar" />
-        Detalhes do pokemonzinho
+        {item.name}
       </div>
       <Container>
         <NameContainer>
-          <h2>Nome</h2>
-          <h4>#número</h4>
+          <h2>{item.name}</h2>
+          <h4>#{item.id}</h4>
         </NameContainer>
 
         <TypeContainer>
-          <p>tipos</p>
-          <p>moves</p>
+          <p>{item.types}</p>
+          <p>{item.moves}</p>
         </TypeContainer>
 
         <Images>
-          <p>foto do pokemon de frente</p>
-          <p>bundinha do pokemon</p>
+          <img src={item.sprites.other.dream_world.front_default}/>
         </Images>
 
         <StatsContainer>
           <ul>
-            <li>stats</li>
+            <li>{item.stats}</li>
             <li>stats</li>
             <li>stats</li>
             <li>stats</li>
@@ -37,7 +41,11 @@ const Details = () => {
         </StatsContainer>
       </Container>
     </div>
-  );
-};
+  )})
+
+  return (
+    {pokemons}
+  )
+}
 
 export default Details;
