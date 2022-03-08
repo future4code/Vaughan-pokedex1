@@ -1,12 +1,13 @@
 import React from 'react'
 import Header from '../../components/Header/Header';
+import { goToHomePage } from '../../routers/coordenation';
 
 const Details = () => {
     return (
       <div>
            <Header
+             goto ={goToHomePage}
         title='Voltar'/>
-        <h1>Pokedex</h1>
         Detalhes do pokemonzinho
       </div>
     );
