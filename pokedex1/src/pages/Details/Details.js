@@ -1,10 +1,18 @@
 import React from 'react'
-import { Container, NameContainer, Images, StatsContainer, TypeContainer } from './styled'
+import Header from '../../components/Header/Header';
+import { goToHomePage } from '../../routers/coordenation';
 
 const Details = () => {
 
 
     return (
+        <div>
+        <div>
+           <Header
+             goto ={goToHomePage}
+        title='Voltar'/>
+        Detalhes do pokemonzinho
+      </div>
       <Container>
         <NameContainer>
             <h2>Nome</h2>
@@ -34,6 +42,7 @@ const Details = () => {
         </StatsContainer>
 
       </Container>
+      </div>
     );
   }
   

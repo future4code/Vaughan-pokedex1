@@ -6,7 +6,7 @@ const PokemonCard = () => {
         <CardContainer>
             <p>Imagem do Pokemon</p>
             <p>Nome: Pokemon</p>
-            <button>Adicionar</button>
+            <button>de</button>
             <button>Detalhes</button>
 
         </CardContainer>
