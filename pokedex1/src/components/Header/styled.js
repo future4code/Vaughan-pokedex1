@@ -1,27 +1,28 @@
 import styled from 'styled-components';
-import { mainColor, secondColor } from '../../constants/colors';
+import { lightColor, mainColor, secondColor } from '../../constants/colors';
 
 export const HeaderStyled = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 20px;
-    background-color: ${secondColor};
+    background-color: ${mainColor};
     color: ${mainColor};
     img{
         width: 200px;
     }
     button{
-        background: none;
-        border: 1px solid ${mainColor};
+        background: ${mainColor};
+        border: 1px solid white;
+        font-size: 1.3rem;
         padding: 15px;
-        height: 8vh;
+        height: 6vh;
         border-radius: .5em;
-        color: ${mainColor};
+        color: white;
         cursor: pointer;
         :hover{
-            background-color: ${mainColor};
-            color: ${secondColor};
+            background-color: ${lightColor};
+            color: white;
         }
     }
 `
