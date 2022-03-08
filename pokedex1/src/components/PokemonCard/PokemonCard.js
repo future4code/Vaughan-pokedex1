@@ -1,15 +1,32 @@
-import react from 'react';
+import react, { useState } from 'react';
+import useRequestData from '../../hooks/useRequestData';
 import { CardContainer } from './styled';
+import { baseURL } from '../../constants/baseURL';
+import axios from 'axios';
 
 const PokemonCard = () => {
-    return (
-        <CardContainer>
-            <p>Imagem do Pokemon</p>
-            <p>Nome: Pokemon</p>
-            <button>de</button>
-            <button>Detalhes</button>
+    const [data, pokemon] = useRequestData([], `${baseURL}/pokemon/`);
 
-        </CardContainer>
+    console.log(pokemon)
+    // console.log(pokemon[0])
+    // const pokemons = pokemon.map((item) => {
+    //     console.log(item.name)
+    //     return (
+    //         <CardContainer>
+    //             {item.name}
+    //             {/* <img src={item.sprites.other.dream_world.front_default} alt="Pokemon" /> */}
+
+    //             <button>Adicionar</button>
+    //             <button>Detalhes</button>
+    //         </CardContainer>
+    //     )
+    // })
+
+    return (
+        <div>
+            {pokemon}
+
+        </div>
     );
 }
 
