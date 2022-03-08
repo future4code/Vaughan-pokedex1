@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import { secondColor } from './constants/colors';
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -6,5 +7,8 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         box-sizing: border-box;
         font-family: 'Roboto', sans-serif;
+    }
+    body{
+        background-color: ${secondColor};
     }
 `

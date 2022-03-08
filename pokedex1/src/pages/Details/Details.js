@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../../components/Header/Header';
 import { goToHomePage } from '../../routers/coordenation';
+import { NameContainer, Container, TypeContainer, Images, StatsContainer } from './styled';
 
 const Details = () => {
 
