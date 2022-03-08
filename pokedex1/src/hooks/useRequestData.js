@@ -14,6 +14,8 @@ const useRequestData = (initialData, url) => {
         getData(url)
     }, [url]);
 
+    
+
     const getData = async(url) => {
         setIsLoading(true);
 
@@ -27,22 +29,33 @@ const useRequestData = (initialData, url) => {
         };
     };
 
-    const pokemons = data.map((pokemon) => {
-        const getPokemon = async() => {
-            try {
-                const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)   
-                    arrayData.push(response.data)
-                    // setDataDetails(arrayData)
-                    console.log(arrayData)
+    useEffect(() => {
+        let pokemonsList = []
+        
+        data.forEach((pokemon) => { 
+            
+            const getPokemon = async() => {
+                try {
                     
-            } catch (error) {
-                console.log(error)
+                    const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)   
+                       pokemonsList.push(response.data)
+                       if(pokemonsList.length === 20) {
+                        setDataDetails(pokemonsList)
+                        console.log("deu certo", dataDetails)
+                    }
+                        }
+                        
+                 catch (error) {
+                    console.log(error)
+                }
             }
-        }
-        return getPokemon()
-    })
-    console.log(data)
-    return [data, pokemons, getData, isLoading, error];
+            return getPokemon()
+        })
+    }, [data])
+
+
+   
+    return [data, dataDetails, getData, isLoading, error];
 };
 
 export default useRequestData;
