@@ -3,10 +3,14 @@ import useRequestData from '../../hooks/useRequestData';
 import { ButtonContainer, CardContainer, DivContainer, ImageContainer } from './styled';
 import { baseURL } from '../../constants/baseURL';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { goToDetails } from '../../routers/coordenation';
+
 
 const PokemonCard = () => {
     const [data, arrayData] = useRequestData([], `${baseURL}/pokemon/`);
-        
+    const navigate = useNavigate();
+    
     const pokemons = arrayData && arrayData.map((item) => {
         return (
             <CardContainer key={item.id}>
@@ -17,7 +21,7 @@ const PokemonCard = () => {
                 
                 <ButtonContainer>
                     <button>Adicionar</button>
-                    <button>Detalhes</button>
+                    <button onClick={() => {goToDetails(navigate, item.id)}}>Detalhes</button>
                 </ButtonContainer>
                 
             </CardContainer>

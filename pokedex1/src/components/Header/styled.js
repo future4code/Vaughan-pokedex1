@@ -12,6 +12,8 @@ export const HeaderStyled = styled.div`
         width: 200px;
     }
     button{
+        display: flex;
+        align-items: center;
         background: ${mainColor};
         border: 1px solid white;
         font-size: 1.3rem;
