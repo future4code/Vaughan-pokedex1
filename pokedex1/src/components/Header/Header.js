@@ -2,11 +2,11 @@ import react from 'react';
 import { HeaderStyled } from './styled';
 import PokemonLogo from '../../assets/images/pokemon-logo.png';
 
-const Header = () => {
+const Header = ({title}) => {
     return (
       <HeaderStyled>
          <img src={PokemonLogo} alt="Logo do Pokemon"/>
-         <button>Pokedex</button>
+         <button>{title}</button>
       </HeaderStyled>
     );
   }
