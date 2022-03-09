@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 import {lightColor, mainColor, secondColor} from '../../constants/colors';
 
+export const MainContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
 export const DivContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(5, 1fr);

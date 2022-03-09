@@ -33,7 +33,7 @@ const Details = () => {
             <h4>Tipos:</h4>
             {pokemon.types.map((tipo)=>{
               return (
-                <p key={tipo.name}>{tipo.type.name}</p>
+                <p key={tipo.type.name}>{tipo.type.name}</p>
               )
             })}
             

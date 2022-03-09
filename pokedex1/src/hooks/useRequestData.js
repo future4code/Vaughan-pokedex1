@@ -1,4 +1,4 @@
-import {useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const useRequestData = (initialData, url) => {
@@ -11,7 +11,7 @@ const useRequestData = (initialData, url) => {
         getData(url)
     }, [url]);
 
-    const getData = async(url) => {
+    const getData = async (url) => {
         setIsLoading(true);
 
         try {
@@ -26,28 +26,26 @@ const useRequestData = (initialData, url) => {
 
     useEffect(() => {
         let pokemonsList = []
-        
-        data.forEach((pokemon) => { 
-            
-            const getPokemon = async() => {
+
+        data.forEach((pokemon) => {
+
+            const getPokemon = async () => {
                 try {
-                    
-                    const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)   
-                       pokemonsList.push(response.data)
-                       if(pokemonsList.length === 20) {
+                    const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
+                    pokemonsList.push(response.data)
+                    if (pokemonsList.length === 20) {
                         setDataDetails(pokemonsList)
-                        console.log("deu certo", dataDetails)
                     }
-                        }
-                        
-                 catch (error) {
+                }
+
+                catch (error) {
                     console.log(error)
                 }
             }
             return getPokemon()
         })
     }, [data])
-   
+
     return [data, dataDetails, getData, isLoading, error];
 };
 
