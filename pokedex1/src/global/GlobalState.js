@@ -5,10 +5,13 @@ import { baseURL } from "../constants/baseURL";
 
 const GlobalState = (props) => {
     const [pokemonList, pokemonDetails] = useRequestData([], `${baseURL}/pokemon/`);
+    const [add , setAdd] = React.useState([]);
     
     const data = {
         pokemonList,
-        pokemonDetails
+        pokemonDetails, 
+        add,
+        setAdd,
     }
 
     return (

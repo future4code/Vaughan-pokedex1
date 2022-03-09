@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "../../components/Header/Header";
 import PokemonCard from "../../components/PokemonCard/PokemonCard";
+import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { goToDetails, goToHomePage } from "../../routers/coordenation";
 
 
 
 const Pokedex =()=> { 
+    const { pokemonDetails , add , setAdd  } = useContext(GlobalStateContext);
+
+    
 
 
     return( <>
@@ -13,9 +17,9 @@ const Pokedex =()=> {
         title='Voltar'
         goto ={goToHomePage}
         />
-        <h1>Pokedex</h1>
         <PokemonCard
          buttonAddRem="Remover"
+         pokemonDetails= {pokemonDetails}
         />
         </>
 

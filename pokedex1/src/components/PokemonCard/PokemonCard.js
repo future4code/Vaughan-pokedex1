@@ -1,15 +1,40 @@
-import react, { useContext } from 'react';
+import React, { useContext } from 'react';
 import { ButtonContainer, CardContainer, DivContainer, ImageContainer } from './styled';
 import { useNavigate } from 'react-router-dom';
 import { goToDetails } from '../../routers/coordenation';
 import { GlobalStateContext } from '../../global/GlobalStateContext';
 
 
-const PokemonCard = ({buttonAddRem}) => {
-    const { pokemonDetails } = useContext(GlobalStateContext);
+
+const PokemonCard = ({buttonAddRem, pokemonDetails ,   }) => {
     const navigate = useNavigate();
+    const {add, setAdd} = useContext(GlobalStateContext);
     
-    const pokemons = pokemonDetails && pokemonDetails.map((item) => {
+
+   const onClickHandler = (id) => { 
+       const arrayAdd = [...add]
+       arrayAdd.push(id)
+       setAdd(arrayAdd)
+      
+
+   }
+
+
+    const pokemons = 
+    pokemonDetails 
+    && 
+    pokemonDetails
+    .filter(item => { 
+        if(add.includes(item.id)){ 
+            return false 
+        }else  
+            return true
+        }
+       
+
+    
+    
+    ).map((item) => {
         return (
             <CardContainer key={item.id}>
                 <p>{item.name[0].toUpperCase()}{item.name.slice(1)}</p>
@@ -18,7 +43,9 @@ const PokemonCard = ({buttonAddRem}) => {
                 </ImageContainer>
                 
                 <ButtonContainer>
-                  <button>{buttonAddRem}</button>
+                  <button
+                  onClick={()=> onClickHandler(item.id)}
+                  >{buttonAddRem}</button>
                     <button onClick={() => {goToDetails(navigate, item.id)}}>Detalhes</button>
                 </ButtonContainer>
                 
@@ -28,6 +55,7 @@ const PokemonCard = ({buttonAddRem}) => {
    
     return (
         <DivContainer>
+         {console.log(add)}
             {pokemons}
         </DivContainer>
     );

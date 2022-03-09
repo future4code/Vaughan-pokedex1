@@ -10,28 +10,28 @@ const Details = () => {
 
   return (
     <div>
-      <div>
+      {/* <div> */}
         <Header goto={goToHomePage} title="Voltar" />
-        {item.name}
-      </div>
+        {/* {item.name} */}
+      {/* </div> */}
       <Container>
-        <NameContainer>
+        {/* <NameContainer>
           <h2>{item.name}</h2>
           <h4>#{item.id}</h4>
-        </NameContainer>
-
+        </NameContainer> */}
+{/* 
         <TypeContainer>
           <p>{item.types}</p>
           <p>{item.moves}</p>
-        </TypeContainer>
+        </TypeContainer> */}
 
         <Images>
-          <img src={item.sprites.other.dream_world.front_default}/>
+          {/* <img src={item.sprites.other.dream_world.front_default}/> */}
         </Images>
 
         <StatsContainer>
           <ul>
-            <li>{item.stats}</li>
+            {/* <li>{item.stats}</li> */}
             <li>stats</li>
             <li>stats</li>
             <li>stats</li>
