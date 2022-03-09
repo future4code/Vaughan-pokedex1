@@ -2,48 +2,81 @@ import React, { useContext } from "react";
 import Header from "../../components/Header/Header";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { goToHomePage } from "../../routers/coordenation";
-import { NameContainer, Container, TypeContainer, Images, StatsContainer } from './styled';
-
+import {
+  NameContainer,
+  Container,
+  MovesContainer,
+  Images,
+  StatsContainer,
+  TypeContainer
+} from "./styled";
+import { useParams } from "react-router-dom";
+import useRequestData from "../../hooks/useRequestData";
+import { baseURL } from "../../constants/baseURL";
 
 const Details = () => {
   const { pokemonDetails } = useContext(GlobalStateContext);
+  const params = useParams();
+  console.log(pokemonDetails)
 
+  let filterPokemon =
+    pokemonDetails &&
+    pokemonDetails.filter((pokemon) => {
+      if (params.id == pokemon.id) {
+        return true;
+      }
+    }).map((pokemon) => {
+      return(
+        <Container key={pokemon.id}>
+         <NameContainer>
+           <h2>{pokemon.name[0].toUpperCase()}{pokemon.name.slice(1)}</h2>
+           <h3>#{pokemon.id}</h3>
+           <TypeContainer>
+            <h4>Tipos:</h4>
+            <p>{pokemon.types[0].type.name}</p>
+            <p>{pokemon.types[1].type.name}</p>
+          </TypeContainer>
+            
+         </NameContainer>
+
+         <MovesContainer>
+            
+            <ul>
+              <li>{pokemon.moves[0].move.name}</li>
+              <li>{pokemon.moves[1].move.name}</li>
+              <li>{pokemon.moves[2].move.name}</li>
+              <li>{pokemon.moves[3].move.name}</li>
+              <li>{pokemon.moves[4].move.name}</li>
+            </ul>
+           
+         </MovesContainer>
+
+         <Images>
+          <img src={pokemon.sprites.other.home.front_default} />
+         </Images>
+
+         <StatsContainer>
+           <ul>
+             <li>{pokemon.stats[0].stat.name}: {pokemon.stats[0].base_stat}</li>
+             <li>{pokemon.stats[1].stat.name}: {pokemon.stats[1].base_stat}</li>
+             <li>{pokemon.stats[2].stat.name}: {pokemon.stats[2].base_stat}</li>
+             <li>{pokemon.stats[3].stat.name}: {pokemon.stats[3].base_stat}</li>
+             <li>{pokemon.stats[4].stat.name}: {pokemon.stats[4].base_stat}</li>
+             <li>{pokemon.stats[5].stat.name}: {pokemon.stats[5].base_stat}</li>
+           </ul>
+         </StatsContainer>
+      </Container>
+      )
+  });
+  
   return (
     <div>
       <div>
         <Header goto={goToHomePage} title="Voltar" />
-        {item.name}
+        {filterPokemon}
       </div>
-      <Container>
-        <NameContainer>
-          <h2>{item.name}</h2>
-          <h4>#{item.id}</h4>
-        </NameContainer>
-
-        <TypeContainer>
-          <p>{item.types}</p>
-          <p>{item.moves}</p>
-        </TypeContainer>
-
-        <Images>
-          <img src={item.sprites.other.dream_world.front_default}/>
-        </Images>
-
-        <StatsContainer>
-          <ul>
-            <li>{item.stats}</li>
-            <li>stats</li>
-            <li>stats</li>
-            <li>stats</li>
-            <li>stats</li>
-            <li>stats</li>
-          </ul>
-        </StatsContainer>
-      </Container>
     </div>
-  )
-
- 
-  }
+  );
+};
 
 export default Details;
