@@ -11,8 +11,6 @@ import {
   TypeContainer
 } from "./styled";
 import { useParams } from "react-router-dom";
-import useRequestData from "../../hooks/useRequestData";
-import { baseURL } from "../../constants/baseURL";
 
 const Details = () => {
   const { pokemonDetails } = useContext(GlobalStateContext);
@@ -27,14 +25,18 @@ const Details = () => {
       }
     }).map((pokemon) => {
       return(
-        <Container key={pokemon.id}>
+        <Container type={pokemon.types[0].type.name} key={pokemon.id}>
          <NameContainer>
            <h2>{pokemon.name[0].toUpperCase()}{pokemon.name.slice(1)}</h2>
            <h3>#{pokemon.id}</h3>
            <TypeContainer>
             <h4>Tipos:</h4>
-            <p>{pokemon.types[0].type.name}</p>
-            <p>{pokemon.types[1].type.name}</p>
+            {pokemon.types.map((tipo)=>{
+              return (
+                <p key={tipo.name}>{tipo.type.name}</p>
+              )
+            })}
+            
           </TypeContainer>
             
          </NameContainer>
