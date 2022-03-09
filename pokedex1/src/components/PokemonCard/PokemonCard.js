@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { goToDetails } from '../../routers/coordenation';
 
 
-const PokemonCard = () => {
+const PokemonCard = ({buttonAddRem}) => {
     const [data, arrayData] = useRequestData([], `${baseURL}/pokemon/`);
     const navigate = useNavigate();
     
@@ -20,7 +20,7 @@ const PokemonCard = () => {
                 </ImageContainer>
                 
                 <ButtonContainer>
-                    <button>Adicionar</button>
+                  <button>{buttonAddRem}</button>
                     <button onClick={() => {goToDetails(navigate, item.id)}}>Detalhes</button>
                 </ButtonContainer>
                 
