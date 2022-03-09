@@ -1,10 +1,11 @@
 import react, { useContext } from 'react';
-import { ButtonContainer, CardContainer, DivContainer, ImageContainer, MainContainer } from './styled';
+import { ButtonContainer, CardContainer, DivContainer, ImageContainer, MainContainer, PaginationStyled } from './styled';
 import { useNavigate } from 'react-router-dom';
 import { goToDetails } from '../../routers/coordenation';
 import { GlobalStateContext } from '../../global/GlobalStateContext';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import { red } from '@mui/material/colors';
 
 
 const PokemonCard = ({ buttonAddRem }) => {
@@ -35,11 +36,11 @@ const PokemonCard = ({ buttonAddRem }) => {
 
     return (
         <MainContainer>
-            <Pagination count={33} page={currentPage} onChange={changeCurrentPage} color="primary"/>
+            <PaginationStyled count={33} page={currentPage} onChange={changeCurrentPage} color="primary"/>
             <DivContainer>
                 {pokemons}
             </DivContainer>
-            <Pagination count={33} page={currentPage} onChange={changeCurrentPage} />
+            <PaginationStyled count={33} page={currentPage} onChange={changeCurrentPage} color="primary" />
         </MainContainer>
     );
 }
