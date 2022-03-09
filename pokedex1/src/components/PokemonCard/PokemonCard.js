@@ -1,15 +1,11 @@
-import react, { useContext } from 'react';
+import { useContext } from 'react';
 import { ButtonContainer, CardContainer, DivContainer, ImageContainer, MainContainer, PaginationStyled } from './styled';
 import { useNavigate } from 'react-router-dom';
 import { goToDetails } from '../../routers/coordenation';
 import { GlobalStateContext } from '../../global/GlobalStateContext';
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
-import { red } from '@mui/material/colors';
-
 
 const PokemonCard = ({ buttonAddRem }) => {
-    const { pokemonDetails, currentPage, setCurrentPage, offset, setOffset } = useContext(GlobalStateContext);
+    const { pokemonDetails, currentPage, setCurrentPage, setOffset } = useContext(GlobalStateContext);
     const navigate = useNavigate();
 
     const changeCurrentPage = (event, number) => {
