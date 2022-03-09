@@ -42,15 +42,14 @@ const Details = () => {
          </NameContainer>
 
          <MovesContainer>
-            
-            <ul>
-              <li>{pokemon.moves[0].move.name}</li>
-              <li>{pokemon.moves[1].move.name}</li>
-              <li>{pokemon.moves[2].move.name}</li>
-              <li>{pokemon.moves[3].move.name}</li>
-              <li>{pokemon.moves[4].move.name}</li>
-            </ul>
-           
+            <h4>Moves:</h4>
+            {/* {pokemon.moves.map((move) => {
+              return (
+                <ul max- key={move.move.name} max>
+                  <li>{move.move.name}</li>
+                </ul>
+              )
+            })} */}
          </MovesContainer>
 
          <Images>
