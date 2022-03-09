@@ -54,7 +54,7 @@ const Details = () => {
          </MovesContainer>
 
          <Images>
-          <img src={pokemon.sprites.other.home.front_default} />
+          <img src={pokemon.sprites.other.dream_world.front_default} />
          </Images>
 
          <StatsContainer>

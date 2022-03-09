@@ -18,7 +18,7 @@ const PokemonCard = ({ buttonAddRem }) => {
             <CardContainer key={item.id}>
                 <p>{item.name[0].toUpperCase()}{item.name.slice(1)}</p>
                 <ImageContainer>
-                    <img src={item.sprites.other.dream_world.front_default} alt={item.name} />
+                    <img src={item.sprites.other.home.front_default} alt={item.name} />
                 </ImageContainer>
 
                 <ButtonContainer>
@@ -32,11 +32,11 @@ const PokemonCard = ({ buttonAddRem }) => {
 
     return (
         <MainContainer>
-            <PaginationStyled count={33} page={currentPage} onChange={changeCurrentPage} color="primary"/>
+            <PaginationStyled count={56} page={currentPage} onChange={changeCurrentPage} color="primary"/>
             <DivContainer>
                 {pokemons}
             </DivContainer>
-            <PaginationStyled count={33} page={currentPage} onChange={changeCurrentPage} color="primary" />
+            <PaginationStyled count={56} page={currentPage} onChange={changeCurrentPage} color="primary" />
         </MainContainer>
     );
 }
