@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "../../components/Header/Header";
+import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { goToHomePage } from "../../routers/coordenation";
 import { NameContainer, Container, TypeContainer, Images, StatsContainer } from './styled';
+
+
 const Details = () => {
+  const { pokemonDetails } = useContext(GlobalStateContext);
+
   return (
     <div>
       <div>
