@@ -28,7 +28,7 @@ export const Container = styled.div`
     align-items: center;
     justify-items: center;
     margin-top: 1%;
-    color: {mainColor};
+    color: ${mainColor};
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, ${(p) => typeColor[p.type]} 100%); 
 `
 
