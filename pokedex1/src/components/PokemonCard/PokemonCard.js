@@ -34,7 +34,9 @@ const PokemonCard = ({ buttonAddRem }) => {
         <MainContainer>
             <PaginationStyled count={56} page={currentPage} onChange={changeCurrentPage} color="primary"/>
             <DivContainer>
+
                 {pokemons}
+                
             </DivContainer>
             <PaginationStyled count={56} page={currentPage} onChange={changeCurrentPage} color="primary" />
         </MainContainer>
