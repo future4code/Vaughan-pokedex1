@@ -1,5 +1,19 @@
 import styled from 'styled-components';
 import {lightColor, mainColor, secondColor} from '../../constants/colors';
+import { Pagination } from '@mui/material';
+
+export const MainContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+export const PaginationStyled = styled(Pagination)`
+    background-color: rgba(222, 222, 222, .2);
+    border-radius: .5em;
+    margin: 10px;
+`
 
 export const DivContainer = styled.div`
     display: grid;
@@ -28,7 +42,7 @@ export const CardContainer = styled.div`
         font-size: 1.5rem;
     }
     img{
-        max-width: 20vw;
+        max-width: 15vw;
         max-height: 15vh;
         margin: 10px;
     }
@@ -51,7 +65,7 @@ export const CardContainer = styled.div`
 export const ImageContainer = styled.div`
     display: flex;
     justify-content: center;
-    width: 15vw;
+    width: 20vw;
     height: 20vh;
 `
 
