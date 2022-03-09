@@ -5,8 +5,6 @@ import { goToDetails } from '../../routers/coordenation';
 import { GlobalStateContext } from '../../global/GlobalStateContext';
 
 
-const PokemonCard = () => {
-    
 const PokemonCard = ({buttonAddRem}) => {
     const { pokemonDetails } = useContext(GlobalStateContext);
     const navigate = useNavigate();
