@@ -4,7 +4,7 @@ import useRequestData from "../hooks/useRequestData";
 import { baseURL } from "../constants/baseURL";
 
 const GlobalState = (props) => {
-    const [currentPage, setCurrentPage] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
     const [offset, setOffset] = useState(0);
     const [pokemonList, pokemonDetails] = useRequestData([], `${baseURL}/pokemon/?limit=20&offset=${offset}`);
 
