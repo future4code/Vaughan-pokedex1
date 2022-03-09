@@ -14,7 +14,9 @@ const Pokedex =()=> {
         goto ={goToHomePage}
         />
         <h1>Pokedex</h1>
-        <PokemonCard/>
+        <PokemonCard
+         buttonAddRem="Remover"
+        />
         </>
 
     )
