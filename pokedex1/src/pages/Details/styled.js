@@ -21,6 +21,7 @@ const typeColor = {
     'water': '#2458e6'
 };
 
+
 export const Container = styled.div`
     display: grid;
     grid-template: 60px 60px 1fr / 1fr 1fr 1fr;
