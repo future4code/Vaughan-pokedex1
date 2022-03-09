@@ -7,7 +7,6 @@ import { GlobalStateContext } from '../../global/GlobalStateContext';
 
 const PokemonCard = ({buttonAddRem}) => {
     const { pokemonDetails } = useContext(GlobalStateContext);
-
     const navigate = useNavigate();
     
     const pokemons = pokemonDetails && pokemonDetails.map((item) => {
