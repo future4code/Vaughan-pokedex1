@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "../../components/Header/Header";
-import { baseURL } from "../../constants/baseURL";
-import useRequestData from "../../hooks/useRequestData";
+import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { goToHomePage } from "../../routers/coordenation";
 import { NameContainer, Container, TypeContainer, Images, StatsContainer } from './styled';
 
+
 const Details = () => {
-  const [data, arrayData] = useRequestData([], `${baseURL}/pokemon/`);
-  const pokemons = arrayData && arrayData.map((item) => {
-    return (  
-    <div key={item.id}>
+  const { pokemonDetails } = useContext(GlobalStateContext);
+
+  return (
+    <div>
       <div>
         <Header goto={goToHomePage} title="Voltar" />
         {item.name}
@@ -41,11 +41,9 @@ const Details = () => {
         </StatsContainer>
       </Container>
     </div>
-  )})
-
-  return (
-    {pokemons}
   )
-}
+
+ 
+  }
 
 export default Details;

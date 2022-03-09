@@ -7,14 +7,9 @@ const useRequestData = (initialData, url) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
 
-
-    const arrayData = [];
-
     useEffect(() => {
         getData(url)
     }, [url]);
-
-    
 
     const getData = async(url) => {
         setIsLoading(true);
@@ -52,8 +47,6 @@ const useRequestData = (initialData, url) => {
             return getPokemon()
         })
     }, [data])
-
-
    
     return [data, dataDetails, getData, isLoading, error];
 };

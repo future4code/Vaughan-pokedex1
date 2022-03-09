@@ -10,7 +10,9 @@ const HomePage = () => {
         title="Pokedex"
         goto={goToPokedex}
         />
-        <PokemonCard/>
+        <PokemonCard
+        buttonAddRem="Adicionar"
+        />
       </div>
     );
   }
