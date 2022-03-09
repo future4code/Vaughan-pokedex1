@@ -6,6 +6,8 @@ import { GlobalStateContext } from '../../global/GlobalStateContext';
 
 
 const PokemonCard = () => {
+    
+const PokemonCard = ({buttonAddRem}) => {
     const { pokemonDetails } = useContext(GlobalStateContext);
     const navigate = useNavigate();
     
@@ -18,7 +20,7 @@ const PokemonCard = () => {
                 </ImageContainer>
                 
                 <ButtonContainer>
-                    <button>Adicionar</button>
+                  <button>{buttonAddRem}</button>
                     <button onClick={() => {goToDetails(navigate, item.id)}}>Detalhes</button>
                 </ButtonContainer>
                 
