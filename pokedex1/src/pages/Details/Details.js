@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Header from "../../components/Header/Header";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
-import { goToHomePage } from "../../routers/coordenation";
+import { goToHomePage, goToReturn } from "../../routers/coordenation";
 import {
   NameContainer,
   Container,
@@ -73,7 +73,7 @@ const Details = () => {
   return (
     <div>
       <div>
-        <Header goto={goToHomePage} title="Voltar" />
+        <Header goto={goToReturn} title="Voltar" />
         {filterPokemon}
       </div>
     </div>
