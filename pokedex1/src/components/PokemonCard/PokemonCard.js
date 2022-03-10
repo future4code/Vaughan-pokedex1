@@ -6,14 +6,16 @@ import {
   ImageContainer,
   MainContainer,
   PaginationStyled,
+  Loading
 } from "./styled";
 import { useNavigate } from "react-router-dom";
 import { goToDetails } from "../../routers/coordenation";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
+import { CircularProgress } from "@mui/material";
 
 const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex }) => {
   const navigate = useNavigate();
-  const { currentPage, setCurrentPage, setOffset } =
+  const { currentPage, setCurrentPage, setOffset, isLoading } =
     useContext(GlobalStateContext);
 
   const changeCurrentPage = (event, number) => {
@@ -59,14 +61,16 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex }) => {
 
   return (
     <MainContainer>
-     {!isPokedex && <PaginationStyled
+      {isLoading && <Loading color="primary"/> }
+      {!isLoading &&
+     !isPokedex && <PaginationStyled
         count={56}
         page={currentPage}
         onChange={changeCurrentPage}
         color='primary'
       /> }
       <DivContainer>{pokemons}</DivContainer>
-      {!isPokedex && <PaginationStyled
+      {!isLoading && !isPokedex && <PaginationStyled
         count={56}
         page={currentPage}
         onChange={changeCurrentPage}
