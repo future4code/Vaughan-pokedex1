@@ -32,6 +32,7 @@ const Pokedex = () => {
         buttonAddRem='Remover'
         pokemonDetails={pokemonDetailsFromHome}
         dataUp={dataUp}
+        buttonBattle='Batalhar'
       />
     </>
   );

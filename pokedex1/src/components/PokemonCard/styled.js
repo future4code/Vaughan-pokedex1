@@ -76,6 +76,7 @@ export const ImageContainer = styled.div`
 
 export const ButtonContainer = styled.div`
     display: flex;
+    flex-wrap: wrap;
     button{
         margin: 10px;
         padding: 10px;

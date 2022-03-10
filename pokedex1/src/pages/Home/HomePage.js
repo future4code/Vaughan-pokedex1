@@ -25,12 +25,13 @@ const HomePage = () => {
 
   return (
     <div>
-      {console.log(add)}
+      {/* {console.log(add)} */}
       <Header title='Pokedex' goto={goToPokedex} />
       <PokemonCard
         buttonAddRem='Adicionar'
         pokemonDetails={pokemonDetailsFromHome}
         dataUp={dataUp}
+        buttonBattle={false}
       />
     </div>
   );

@@ -42,7 +42,7 @@ const useRequestData = (initialData, url) => {
 
                 catch (error) {
                     setIsLoading(false);
-                    console.log(error)
+                    setError(error)
                 }
             }
             return getPokemon()
