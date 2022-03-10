@@ -11,9 +11,9 @@ import { useNavigate } from "react-router-dom";
 import { goToDetails } from "../../routers/coordenation";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 
-const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp }) => {
+const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex }) => {
   const navigate = useNavigate();
-  const { add, setAdd, currentPage, setCurrentPage, setOffset } =
+  const { currentPage, setCurrentPage, setOffset } =
     useContext(GlobalStateContext);
 
   const changeCurrentPage = (event, number) => {
@@ -56,19 +56,19 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp }) => {
 
   return (
     <MainContainer>
-      <PaginationStyled
+     {!isPokedex && <PaginationStyled
         count={56}
         page={currentPage}
         onChange={changeCurrentPage}
         color='primary'
-      />
+      /> }
       <DivContainer>{pokemons}</DivContainer>
-      <PaginationStyled
+      {!isPokedex && <PaginationStyled
         count={56}
         page={currentPage}
         onChange={changeCurrentPage}
         color='primary'
-      />
+      />}
     </MainContainer>
   );
 };

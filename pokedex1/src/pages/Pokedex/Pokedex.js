@@ -5,7 +5,7 @@ import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { goToDetails, goToHomePage } from "../../routers/coordenation";
 
 const Pokedex = () => {
-  const { pokemonDetails, add, setAdd } = useContext(GlobalStateContext);
+  const {  pokemonDetailsPokedex ,  add, setAdd } = useContext(GlobalStateContext);
 
   const dataUp = (id) => {
     const arrayAdd = [...add];
@@ -14,8 +14,8 @@ const Pokedex = () => {
   };
 
   const pokemonDetailsFromHome =
-    pokemonDetails &&
-    pokemonDetails.filter((item) => {
+  pokemonDetailsPokedex &&
+    pokemonDetailsPokedex.filter((item) => {
       if (add.includes(item.id)) {
         return true;
       } else {
@@ -28,6 +28,7 @@ const Pokedex = () => {
       {console.log(add)}
       <Header title='Voltar' goto={goToHomePage} />
       <PokemonCard
+      isPokedex="true"
         buttonAddRem='Remover'
         pokemonDetails={pokemonDetailsFromHome}
         dataUp={dataUp}
