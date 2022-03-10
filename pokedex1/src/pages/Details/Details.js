@@ -8,68 +8,105 @@ import {
   MovesContainer,
   Images,
   StatsContainer,
-  TypeContainer
+  TypeContainer,
+  BorderLinearProgress,
+  ContainerContent,
+  PokemonImage,
+  PokeballImage
 } from "./styled";
 import { useParams } from "react-router-dom";
+import Box from "@mui/material/Box";
+import pokeball from '../../assets/images/pokeball.webp';
 
 const Details = () => {
   const { pokemonDetails } = useContext(GlobalStateContext);
   const params = useParams();
-  console.log(pokemonDetails)
+  console.log(pokemonDetails);
 
   let filterPokemon =
     pokemonDetails &&
-    pokemonDetails.filter((pokemon) => {
-      if (params.id == pokemon.id) {
-        return true;
-      }
-    }).map((pokemon) => {
-      return(
-        <Container type={pokemon.types[0].type.name} key={pokemon.id}>
-         <NameContainer>
-           <h2>{pokemon.name[0].toUpperCase()}{pokemon.name.slice(1)}</h2>
-           <h3>#{pokemon.id}</h3>
-           <TypeContainer>
-            <h4>Tipos:</h4>
-            {pokemon.types.map((tipo)=>{
-              return (
-                <p key={tipo.type.name}>{tipo.type.name}</p>
-              )
-            })}
-            
-          </TypeContainer>
-            
-         </NameContainer>
+    pokemonDetails
+      .filter((pokemon) => {
+        if (params.id == pokemon.id) {
+          return true;
+        }
+      })
+      .map((pokemon) => {
+        return (
+          <Container type={pokemon.types[0].type.name} key={pokemon.id}>
+            <NameContainer>
+              <h2>
+                {pokemon.name[0].toUpperCase()}
+                {pokemon.name.slice(1)}
+              </h2>
+              <h3>#{pokemon.id}</h3>
+              <TypeContainer>
+                {pokemon.types.map((tipo) => {
+                  return <p key={tipo.type.name}>{tipo.type.name}</p>;
+                })}
+              </TypeContainer>
+            </NameContainer>
 
-         <MovesContainer>
-            <h4>Moves:</h4>
-            {/* {pokemon.moves.map((move) => {
-              return (
-                <ul max- key={move.move.name} max>
-                  <li>{move.move.name}</li>
-                </ul>
-              )
-            })} */}
-         </MovesContainer>
+            <ContainerContent>
+              <Images>
+                <PokeballImage src={pokeball}/>
+                <PokemonImage src={pokemon.sprites.other.dream_world.front_default} />
+              </Images>
 
-         <Images>
-          <img src={pokemon.sprites.other.home.front_default} />
-         </Images>
+              <MovesContainer>
+                <h4>Moves:</h4>
+                <div>
+                  <p>{pokemon.moves && pokemon.moves[0].move.name}</p>
+                  <p>{pokemon.moves && pokemon.moves[1].move.name}</p>
+                  <p>{pokemon.moves && pokemon.moves[2].move.name}</p>
+                  <p>{pokemon.moves && pokemon.moves[3].move.name}</p>
+                </div>
+              </MovesContainer>
 
-         <StatsContainer>
-           <ul>
-             <li>{pokemon.stats[0].stat.name}: {pokemon.stats[0].base_stat}</li>
-             <li>{pokemon.stats[1].stat.name}: {pokemon.stats[1].base_stat}</li>
-             <li>{pokemon.stats[2].stat.name}: {pokemon.stats[2].base_stat}</li>
-             <li>{pokemon.stats[3].stat.name}: {pokemon.stats[3].base_stat}</li>
-             <li>{pokemon.stats[4].stat.name}: {pokemon.stats[4].base_stat}</li>
-             <li>{pokemon.stats[5].stat.name}: {pokemon.stats[5].base_stat}</li>
-           </ul>
-         </StatsContainer>
-      </Container>
-      )
-  });
-  
+              <StatsContainer>
+                <h4>Stats:</h4>
+                <Box mt={1}>
+                  {pokemon.stats[0].stat.name}:{" "}
+                  <BorderLinearProgress
+                    color="secondary"
+                    variant="determinate"
+                    value={pokemon.stats[0].base_stat / 1.5}
+                  />
+                </Box>
+                <Box mt={1}>
+                  {pokemon.stats[1].stat.name}:{" "}
+                  <BorderLinearProgress
+                    variant="determinate"
+                    value={pokemon.stats[1].base_stat / 1.5}
+                  />
+                </Box>
+                <Box mt={1}>
+                  {pokemon.stats[3].stat.name}:{" "}
+                  <BorderLinearProgress
+                    variant="determinate"
+                    value={pokemon.stats[3].base_stat / 1.5}
+                  />
+                </Box>
+                <Box mt={1}>
+                  {pokemon.stats[4].stat.name}:{" "}
+                  <BorderLinearProgress
+                    variant="determinate"
+                    value={pokemon.stats[4].base_stat / 1.5}
+                  />
+                </Box>
+                <Box mt={1}>
+                  {pokemon.stats[5].stat.name}:{" "}
+                  <BorderLinearProgress
+                    variant="determinate"
+                    value={pokemon.stats[5].base_stat / 1.5}
+                  />
+                </Box>
+              </StatsContainer>
+            </ContainerContent>
+          </Container>
+        );
+      });
+
   return (
     <div>
       <div>
