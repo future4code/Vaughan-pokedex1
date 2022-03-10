@@ -35,7 +35,10 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex }) => {
             {item.name.slice(1)}
           </p>
           <ImageContainer>
-            <img src={item.sprites.other.home.front_default} alt={item.name} />
+            {item.sprites.other.dream_world.front_default ? 
+            <img src={item.sprites.other.dream_world.front_default} alt={item.name} /> :
+            <img src={item.sprites.other.home.front_default} alt={item.name} />}
+            
           </ImageContainer>
 
           <ButtonContainer>
