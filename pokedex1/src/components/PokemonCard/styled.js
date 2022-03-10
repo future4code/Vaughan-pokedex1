@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {lightColor, mainColor, secondColor} from '../../constants/colors';
 import { Pagination } from '@mui/material';
+import { CircularProgress } from "@mui/material";
 
 export const MainContainer = styled.div`
     display: flex;
@@ -26,6 +27,10 @@ export const DivContainer = styled.div`
 @media (max-width: 480px) {
     grid-template-columns: repeat(2, 1fr);
 }
+`
+
+export const Loading = styled(CircularProgress)`
+    margin: 30px;
 `
 
 export const CardContainer = styled.div`

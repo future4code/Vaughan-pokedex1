@@ -30,8 +30,10 @@ const useRequestData = (initialData, url) => {
         data.forEach((pokemon) => {
 
             const getPokemon = async () => {
+                setIsLoading(true);
                 try {
                     const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
+                    setIsLoading(false);
                     pokemonsList.push(response.data)
                     if (pokemonsList.length === 20) {
                         setDataDetails(pokemonsList)
@@ -39,6 +41,7 @@ const useRequestData = (initialData, url) => {
                 }
 
                 catch (error) {
+                    setIsLoading(false);
                     console.log(error)
                 }
             }
