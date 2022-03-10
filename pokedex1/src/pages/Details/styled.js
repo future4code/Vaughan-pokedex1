@@ -24,13 +24,15 @@ const typeColor = {
 
 export const Container = styled.div`
     display: grid;
-    grid-template: 60px 60px 1fr / 1fr 1fr 1fr;
+    grid-template: 60px 0 1fr / 1fr 1fr 1fr;
     align-items: center;
     justify-items: center;
-    margin-top: 1%;
-    color: ${mainColor};
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, ${(p) => typeColor[p.type]} 100%); 
+    color: ${secondColor};
+    background: radial-gradient(circle, #b8b8b8 0%, ${(p) => typeColor[p.type]} 100%);
+    height: 85vh;
+    width: 100vw;
 `
+// background: linear-gradient(0deg, rgba(255,255,255,1) 0%, ${(p) => typeColor[p.type]} 100%); 
 
 export const NameContainer = styled.div`
     color: mainColor;

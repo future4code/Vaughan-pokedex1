@@ -6,9 +6,9 @@ import { GlobalStateContext } from '../../global/GlobalStateContext';
 
 
 
-const PokemonCard = ({buttonAddRem, pokemonDetails ,   }) => {
+const PokemonCard = ({buttonAddRem  }) => {
     const navigate = useNavigate();
-    const {add, setAdd} = useContext(GlobalStateContext);
+    const { add, setAdd , pokemonDetails, currentPage, setCurrentPage, setOffset } = useContext(GlobalStateContext);
     
     const changeCurrentPage = (event, number) => {
         setCurrentPage(number)
@@ -19,8 +19,6 @@ const PokemonCard = ({buttonAddRem, pokemonDetails ,   }) => {
        const arrayAdd = [...add]
        arrayAdd.push(id)
        setAdd(arrayAdd)
-      
-
    }
 
 
