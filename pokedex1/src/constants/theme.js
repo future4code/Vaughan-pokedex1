@@ -13,7 +13,7 @@ const theme = createTheme({
     text: {
       primary: secondColor,
     },
-    
+
   },
 });
 
