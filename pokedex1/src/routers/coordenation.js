@@ -7,3 +7,6 @@ export const goToPokedex=(navigate)=>{
 export const goToDetails=(navigate, id)=>{ 
     navigate(`/${id}`);
 }
+export const goToReturn=(navigate)=>{ 
+    navigate(-1);
+}
