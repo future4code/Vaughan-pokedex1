@@ -6,9 +6,6 @@ const theme = createTheme({
     primary: {
       main: lightColor,
     },
-    text: {
-      primary: secondColor,
-    },
   },
 });
 
