@@ -18,19 +18,10 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBa
     useContext(GlobalStateContext);
 
   const [pokemonBattle, setPokemonBattle] = useState([]);
+  const [pokemonBattleNames, setPokemonBattleNames] = useState([]);
 
   useEffect(() => {
-    if (pokemonBattle.length === 2 && pokemonBattle[0] > pokemonBattle[1]) {
-      setPokemonBattle([])
-      alert("O primeiro pokemon ganhou!")
-      console.log("")
-    } else if (pokemonBattle.length === 2 && pokemonBattle[0] < pokemonBattle[1]) {
-      setPokemonBattle([])
-      alert("O segundo pokemon ganhou!")
-    } else if (pokemonBattle.length === 2 && pokemonBattle[0] === pokemonBattle[1]) {
-      setPokemonBattle([])
-      alert("Empatou!")
-    };
+    battleResults()
   }, [pokemonBattle])
 
   const changeCurrentPage = (event, number) => {
@@ -42,15 +33,34 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBa
     dataUp(id);
   };
 
-  const onClickBattle = (id) => {
+  const onClickBattle = (id, name) => {
     console.log('funçao adicionar', id)
     if (pokemonBattle.length === 0) {
       setPokemonBattle([...pokemonBattle, id])
+      setPokemonBattleNames([...pokemonBattleNames, name])
       alert("Escolha outro Pokemon para Batalhar!")
     }
     if (pokemonBattle.length <= 1) {
       setPokemonBattle([...pokemonBattle, id])
+      setPokemonBattleNames([...pokemonBattleNames, name])
     }
+  };
+
+  const battleResults = () => {
+    if (pokemonBattle.length === 2 && pokemonBattle[0] > pokemonBattle[1]) {
+      setPokemonBattle([])
+      alert(`${pokemonBattleNames[0][0].toUpperCase()}${pokemonBattleNames[0].slice(1)} ganhou com ${pokemonBattle[0]}!`)
+      setPokemonBattleNames([])
+      console.log("")
+    } else if (pokemonBattle.length === 2 && pokemonBattle[0] < pokemonBattle[1]) {
+      setPokemonBattle([])
+      alert(`${pokemonBattleNames[1][0].toUpperCase()}${pokemonBattleNames[1].slice(1)} ganhou com ${pokemonBattle[1]} pontos!`)
+      setPokemonBattleNames([])
+    } else if (pokemonBattle.length === 2 && pokemonBattle[0] === pokemonBattle[1]) {
+      setPokemonBattle([])
+      alert("Empatou!")
+      setPokemonBattleNames([])
+    };
   };
 
   const pokemons =
@@ -87,7 +97,7 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBa
                   for (let stat of item.stats) {
                     sum = sum + stat.base_stat
                   }
-                  onClickBattle(sum)
+                  onClickBattle(sum, item.name)
                 }}>
 
                   {buttonBattle}
@@ -101,6 +111,7 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBa
     });
 
   console.log(pokemonBattle)
+  console.log(pokemonBattleNames)
   return (
     <MainContainer>
       {isLoading && <Loading color="primary" />}
