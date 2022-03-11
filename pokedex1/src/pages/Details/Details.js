@@ -77,109 +77,109 @@ const Details = () => {
                     case "bug":
                       return <div>
                         <Tooltip title="Bug">
-                          <img src={bug} />
+                          <img key={tipo.type.name} src={bug} />
                         </Tooltip>
                       </div>;
                     case "dark":
                       return <div>
                         <Tooltip title="Dark">
-                          <img src={dark} />
+                          <img key={tipo.type.name} src={dark} />
                         </Tooltip>
                       </div>;
                     case "dragon":
                       return <div>
                         <Tooltip title="Dragon">
-                          <img src={dragon} />
+                          <img key={tipo.type.name} src={dragon} />
                         </Tooltip>
                       </div>;
                     case "electric":
                       return <div>
                         <Tooltip title="Electric">
-                          <img src={eletric} />
+                          <img key={tipo.type.name} src={eletric} />
                         </Tooltip>
                       </div>;
                     case "fairy":
                       return <div>
                         <Tooltip title="Fairy">
-                          <img src={fairy} />
+                          <img key={tipo.type.name} src={fairy} />
                         </Tooltip>
                       </div>;
                     case "fighting":
                       return <div>
                         <Tooltip title="Fighting">
-                          <img src={fighting} />
+                          <img key={tipo.type.name} src={fighting} />
                         </Tooltip>
                       </div>;
                     case "fire":
                       return <div>
                         <Tooltip title="Fire">
-                          <img src={fire} />
+                          <img key={tipo.type.name} src={fire} />
                         </Tooltip>
                       </div>;
                     case "flying":
                       return <div>
                         <Tooltip title="Flying">
-                          <img src={flying} />
+                          <img key={tipo.type.name} src={flying} />
                         </Tooltip>
                       </div>;
                     case "ghost":
                       return <div>
                         <Tooltip title="Ghost">
-                          <img src={ghost} />
+                          <img key={tipo.type.name} src={ghost} />
                         </Tooltip>
                       </div>;
                     case "grass":
                       return <div>
                         <Tooltip title="Grass">
-                          <img src={grass} />
+                          <img key={tipo.type.name} src={grass} />
                         </Tooltip>
                       </div>;
                     case "ground":
                       return <div>
                         <Tooltip title="Ground">
-                          <img src={ground} />
+                          <img key={tipo.type.name} src={ground} />
                         </Tooltip>
                       </div>;
                     case "ice":
                       return <div>
                         <Tooltip title="Ice">
-                          <img src={ice} />
+                          <img key={tipo.type.name} src={ice} />
                         </Tooltip>
                       </div>;
                     case "normal":
                       return <div>
                         <Tooltip title="Normal">
-                          <img src={normal} />
+                          <img key={tipo.type.name} src={normal} />
                         </Tooltip>
                       </div>;
                     case "poison":
                       return <div>
                         <Tooltip title="Poison">
-                          <img src={poison} />
+                          <img key={tipo.type.name} src={poison} />
                         </Tooltip>
                       </div>;
                     case "psychic":
                       return <div>
                         <Tooltip title="Psychic">
-                          <img src={psychic} />
+                          <img key={tipo.type.name} src={psychic} />
                         </Tooltip>
                       </div>;
                     case "rock":
                       return <div>
                         <Tooltip title="Rock">
-                          <img src={rock} />
+                          <img key={tipo.type.name} src={rock} />
                         </Tooltip>
                       </div>;
                     case "steel":
                       return <div>
                         <Tooltip title="Steel">
-                          <img src={steel} />
+                          <img key={tipo.type.name} src={steel} />
                         </Tooltip>
                       </div>;
                     default:
                       return <div>
                         <Tooltip title="Water">
-                          <img src={water} />
+                          <img key={tipo.type.name} src={water} />
                         </Tooltip>
                       </div>
                   }
@@ -191,7 +191,7 @@ const Details = () => {
               <Images>
                 <PokeballImage src={pokeball} />
                 <PokemonImage
-                  src={pokemon.sprites.other.dream_world.front_default}
+                  src={pokemon.sprites.other.dream_world.front_default ? pokemon.sprites.other.dream_world.front_default : pokemon.sprites.other.home.front_default}
                 />
               </Images>
 
