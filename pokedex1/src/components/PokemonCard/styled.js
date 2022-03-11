@@ -10,6 +10,14 @@ export const MainContainer = styled.div`
     align-items: center;
 `
 
+export const EmptyPokedexImage = styled.img`
+    margin-top: 10vh;
+
+@media (max-width:650px) {
+    width: 80vw;
+}
+`
+
 export const PaginationStyled = styled(Pagination)`
     background-color: rgba(222, 222, 222, .2);
     border-radius: .5em;

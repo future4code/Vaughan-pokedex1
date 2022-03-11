@@ -35,6 +35,7 @@ import psychic from '../../assets/images/psychic.png'
 import rock from '../../assets/images/rock.png'
 import steel from '../../assets/images/steel.png'
 import water from '../../assets/images/water.png'
+import { Tooltip } from "@mui/material";
 
 const Details = () => {
   const { pokemonDetails, add, setAdd } = useContext(GlobalStateContext);
@@ -74,41 +75,113 @@ const Details = () => {
                 {pokemon.types.map((tipo) => {
                   switch (tipo.type.name) {
                     case "bug":
-                      return <img src={bug}/>;
+                      return <div>
+                        <Tooltip title="Bug">
+                          <img src={bug} />
+                        </Tooltip>
+                      </div>;
                     case "dark":
-                      return <img src={dark}/>;
+                      return <div>
+                        <Tooltip title="Dark">
+                          <img src={dark} />
+                        </Tooltip>
+                      </div>;
                     case "dragon":
-                      return <img src={dragon}/>;
+                      return <div>
+                        <Tooltip title="Dragon">
+                          <img src={dragon} />
+                        </Tooltip>
+                      </div>;
                     case "electric":
-                      return <img src={eletric}/>;
+                      return <div>
+                        <Tooltip title="Electric">
+                          <img src={eletric} />
+                        </Tooltip>
+                      </div>;
                     case "fairy":
-                      return <img src={fairy}/>;
+                      return <div>
+                        <Tooltip title="Fairy">
+                          <img src={fairy} />
+                        </Tooltip>
+                      </div>;
                     case "fighting":
-                      return <img src={fighting}/>;
+                      return <div>
+                        <Tooltip title="Fighting">
+                          <img src={fighting} />
+                        </Tooltip>
+                      </div>;
                     case "fire":
-                      return <img src={fire}/>;
+                      return <div>
+                        <Tooltip title="Fire">
+                          <img src={fire} />
+                        </Tooltip>
+                      </div>;
                     case "flying":
-                      return <img src={flying}/>;
+                      return <div>
+                        <Tooltip title="Flying">
+                          <img src={flying} />
+                        </Tooltip>
+                      </div>;
                     case "ghost":
-                      return <img src={ghost}/>;
+                      return <div>
+                        <Tooltip title="Ghost">
+                          <img src={ghost} />
+                        </Tooltip>
+                      </div>;
                     case "grass":
-                      return <img src={grass}/>;
+                      return <div>
+                        <Tooltip title="Grass">
+                          <img src={grass} />
+                        </Tooltip>
+                      </div>;
                     case "ground":
-                      return <img src={ground}/>;
+                      return <div>
+                        <Tooltip title="Ground">
+                          <img src={ground} />
+                        </Tooltip>
+                      </div>;
                     case "ice":
-                      return <img src={ice}/>;
+                      return <div>
+                        <Tooltip title="Ice">
+                          <img src={ice} />
+                        </Tooltip>
+                      </div>;
                     case "normal":
-                      return <img src={normal}/>;
+                      return <div>
+                        <Tooltip title="Normal">
+                          <img src={normal} />
+                        </Tooltip>
+                      </div>;
                     case "poison":
-                      return <img src={poison}/>;
+                      return <div>
+                        <Tooltip title="Poison">
+                          <img src={poison} />
+                        </Tooltip>
+                      </div>;
                     case "psychic":
-                      return <img src={psychic}/>;
+                      return <div>
+                        <Tooltip title="Psychic">
+                          <img src={psychic} />
+                        </Tooltip>
+                      </div>;
                     case "rock":
-                      return <img src={rock}/>;
-                    case "steel": 
-                      return <img src={steel}/>;
+                      return <div>
+                        <Tooltip title="Rock">
+                          <img src={rock} />
+                        </Tooltip>
+                      </div>;
+                    case "steel":
+                      return <div>
+                        <Tooltip title="Steel">
+                          <img src={steel} />
+                        </Tooltip>
+                      </div>;
                     default:
-                      return <img src={water}/>
+                      return <div>
+                        <Tooltip title="Water">
+                          <img src={water} />
+                        </Tooltip>
+                      </div>
                   }
                 })}
               </TypeContainer>
