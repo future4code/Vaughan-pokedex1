@@ -5,22 +5,23 @@ import { LinearProgress, linearProgressClasses } from "@mui/material";
 
 const typeColor = {
     'bug': '#1c5013',
-    'poison': '#4b1b81',
-    'fire': '#ff0202',
+    'poison': '#b289e0',
+    'fire': '#ff7c24',
     'dark': '#525252',
     'dragon': '#3b79a3',
-    'electric': '#fffb03',
-    'fairy': '#af0755',
-    'fighting': '#991700',
-    'ghost': '#28197c',
-    'grass': '#2b7e35',
-    'ground': '#77440b',
+    'electric': '#f1ef6d',
+    'fairy': '#fa6cae',
+    'fighting': '#f61950',
+    'flying': '#7d8dbb',
+    'ghost': '#5163c8',
+    'grass': '#59ce66',
+    'ground': '#fb7e36',
     'ice': '#8dccdb',
-    'normal': '#7c588d',
-    'psychic': '#aa1796',
-    'rock': '#46190e',
+    'normal': '#979697',
+    'psychic': '#fb4655',
+    'rock': '#c7a958',
     'steel': '#466279',
-    'water': '#2458e6'
+    'water': '#408adf'
 };
 
 
@@ -30,7 +31,6 @@ export const Container = styled.div`
     align-items: center;
     justify-items: center;
     color: white;
-    // background: radial-gradient(circle, #b8b8b8 0%, ${(p) => typeColor[p.type]} 50%);
     height: 85vh;
     width: 100vw;
 `
@@ -39,18 +39,22 @@ export const NameContainer = styled.div`
     color: mainColor;
     margin-top: 1%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    img {
+        max-width: 40px;
+    }
     h2 {
         font-size: 3rem;
     }
     h3 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 `
 
 export const ContainerContent = styled.div`
     display: flex;
     flex-direction: row;
-    margin-top: 4vh;
     width: 80vw;
     justify-content: space-evenly;
     align-items: center;
@@ -60,12 +64,9 @@ export const TypeContainer = styled.div`
     display: flex;
     justify-content: space-around;
     width: 200px;
-    text-transform: capitalize;
-    p {
-        font-size: 1rem;
-        margin-top: 5%;
-        // background-color: ${(p) => typeColor[p.type]}
-    } 
+    height: 40px;
+    margin-top: 2vh;
+    align-self: center;
 `
 
 export const MovesContainer = styled.div`
@@ -81,6 +82,13 @@ export const MovesContainer = styled.div`
     h4 {
         font-size: 1.2rem;
     }
+    // border: 1px white solid;
+    width: 200px;
+    height: 220px;
+    padding: 20px;
+    background-color: rgba(117, 117, 117, 0.25);
+    box-shadow: 3px 3px 8px ${(p) => typeColor[p.type]};
+    border-radius: 5px;
 `
 
 export const Images = styled.div`
@@ -115,6 +123,12 @@ export const StatsContainer = styled.div`
     h4 {
         font-size: 1.2rem;
     }
+    width: 200px;
+    height: 220px;
+    padding: 20px;
+    background-color: rgba(117, 117, 117, 0.25);
+    box-shadow: 3px 3px 8px ${(p) => typeColor[p.type2]};
+    border-radius: 5px;
 `
 export const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     height: 10,
