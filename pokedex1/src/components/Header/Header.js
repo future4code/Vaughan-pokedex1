@@ -19,13 +19,17 @@ const Header = ({title, goto , isDetails,dataUp}) => {
 
     return (
       <HeaderStyled>
+         <div> 
          <button
          onClick={onClick}
          >{title}</button> 
          <img src={PokemonLogo} alt="Logo do Pokemon"/>
-        {isDetails && <button
+         </div>
+        {isDetails && 
+        <button
          onClick={onClick2}
-         >{(add.includes(Number(id))) ? "Remover" : "Adicionar" }</button>}
+         >{(add.includes(Number(id))) ? "Remover" : "Adicionar" }</button>
+         }
       </HeaderStyled>
     );
   }

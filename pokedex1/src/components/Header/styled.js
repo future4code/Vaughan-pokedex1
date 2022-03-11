@@ -3,13 +3,21 @@ import { lightColor, mainColor, secondColor } from '../../constants/colors';
 
 export const HeaderStyled = styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 1% 4%;
     background-color: ${mainColor};
     color: ${mainColor};
+    div{ 
+        width: 58%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
     img{
         width: 200px;
+
     }
     button{
         display: flex;
