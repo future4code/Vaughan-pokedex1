@@ -25,7 +25,6 @@ const HomePage = () => {
 
   return (
     <div>
-      {/* {console.log(add)} */}
       <Header 
       isDetails={false}
       title='Pokedex' goto={goToPokedex} />
