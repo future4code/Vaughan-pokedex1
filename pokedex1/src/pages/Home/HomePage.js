@@ -26,7 +26,9 @@ const HomePage = () => {
   return (
     <div>
       {/* {console.log(add)} */}
-      <Header title='Pokedex' goto={goToPokedex} />
+      <Header 
+      isDetails={false}
+      title='Pokedex' goto={goToPokedex} />
       <PokemonCard
         buttonAddRem='Adicionar'
         pokemonDetails={pokemonDetailsFromHome}

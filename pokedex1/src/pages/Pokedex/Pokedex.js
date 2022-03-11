@@ -26,7 +26,9 @@ const Pokedex = () => {
   return (
     <>
       {console.log(add)}
-      <Header title='Voltar' goto={goToHomePage} />
+      <Header 
+       isDetails={false}
+      title='Voltar' goto={goToHomePage} />
       <PokemonCard
       isPokedex="true"
         buttonAddRem='Remover'
