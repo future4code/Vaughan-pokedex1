@@ -110,8 +110,7 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBa
       );
     });
 
-  console.log(pokemonBattle)
-  console.log(pokemonBattleNames)
+
   return (
     <MainContainer>
       {isLoading && <Loading color="primary" />}

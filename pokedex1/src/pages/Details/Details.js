@@ -19,9 +19,23 @@ import Box from "@mui/material/Box";
 import pokeball from '../../assets/images/pokeball.webp';
 
 const Details = () => {
-  const { pokemonDetails } = useContext(GlobalStateContext);
+  const { pokemonDetails, add, setAdd } = useContext(GlobalStateContext);
   const params = useParams();
   console.log(pokemonDetails);
+
+  const dataUp = (id) => {
+    if(!add.includes(id)){
+    const arrayAdd = [...add];
+    arrayAdd.push(id);
+    setAdd(arrayAdd);
+    } else {
+      const arrayAdd = [...add];
+      const arrayId = arrayAdd.splice(arrayAdd.indexOf(id), 1);
+      setAdd(arrayAdd);
+
+    }
+  };
+
 
   let filterPokemon =
     pokemonDetails &&
@@ -110,7 +124,11 @@ const Details = () => {
   return (
     <div>
       <div>
-        <Header goto={goToReturn} title="Voltar" />
+        {console.log(add)}
+        <Header 
+        isDetails="true"
+        dataUp={dataUp}
+        goto={goToReturn} title="Voltar" />
         {filterPokemon}
       </div>
     </div>
