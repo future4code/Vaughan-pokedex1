@@ -12,9 +12,9 @@ import { useNavigate } from "react-router-dom";
 import { goToDetails } from "../../routers/coordenation";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 
-const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBattle }) => {
+const PokemonCard = ({ buttonAddRem, pokemonDetails  ,dataUp, isPokedex, buttonBattle }) => {
   const navigate = useNavigate();
-  const { currentPage, setCurrentPage, setOffset, isLoading } =
+  const { currentPage, setCurrentPage,numbersOfPokemonsAtHome ,setOffset, isLoading } =
     useContext(GlobalStateContext);
 
   const [pokemonBattle, setPokemonBattle] = useState([]);
@@ -113,21 +113,26 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBa
 
   return (
     <MainContainer>
+      {console.log("numbersOfPokemonsAtHome", numbersOfPokemonsAtHome)}
+     {numbersOfPokemonsAtHome ? <img style={{marginTop:"10%"}} src="https://c.tenor.com/M7VCcAaXbDQAAAAd/all-alone-pikachu.gif "/>  : <>
+     {/* {numbersOfPokemonsAtHome ? <img style={{marginTop:"10%"}} src="https://64.media.tumblr.com/a9a99820a00a1390121421e9f7d99f0c/tumblr_mmtbw0oM711qbuj9wo1_500.gifv"/>  : <> */}
       {isLoading && <Loading color="primary" />}
-      {!isLoading &&
+      {  (!isLoading   &&
         !isPokedex && <PaginationStyled
           count={56}
           page={currentPage}
           onChange={changeCurrentPage}
           color='primary'
-        />}
+        />)}
       <DivContainer>{!isLoading && pokemons}</DivContainer>
-      {!isLoading && !isPokedex && <PaginationStyled
-        count={56}
-        page={currentPage}
-        onChange={changeCurrentPage}
-        color='primary'
-      />}
+      {isLoading && <Loading color="primary" />}
+      {  (!isLoading   &&
+        !isPokedex && <PaginationStyled
+          count={56}
+          page={currentPage}
+          onChange={changeCurrentPage}
+          color='primary'
+        />)}</>}
     </MainContainer>
   );
 };
