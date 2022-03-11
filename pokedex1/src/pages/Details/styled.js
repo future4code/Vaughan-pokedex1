@@ -32,7 +32,7 @@ export const Container = styled.div`
     justify-items: center;
     color: white;
     height: 85vh;
-    width: 100vw;
+    width: 98vw;
 `
 
 export const NameContainer = styled.div`
