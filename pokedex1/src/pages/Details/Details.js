@@ -74,41 +74,41 @@ const Details = () => {
                 {pokemon.types.map((tipo) => {
                   switch (tipo.type.name) {
                     case "bug":
-                      return <img src={bug}/>;
+                      return <img key={tipo.type.name} src={bug}/>;
                     case "dark":
-                      return <img src={dark}/>;
+                      return <img key={tipo.type.name} src={dark}/>;
                     case "dragon":
-                      return <img src={dragon}/>;
+                      return <img key={tipo.type.name} src={dragon}/>;
                     case "electric":
-                      return <img src={eletric}/>;
+                      return <img key={tipo.type.name} src={eletric}/>;
                     case "fairy":
-                      return <img src={fairy}/>;
+                      return <img key={tipo.type.name} src={fairy}/>;
                     case "fighting":
-                      return <img src={fighting}/>;
+                      return <img key={tipo.type.name} src={fighting}/>;
                     case "fire":
-                      return <img src={fire}/>;
+                      return <img key={tipo.type.name} src={fire}/>;
                     case "flying":
-                      return <img src={flying}/>;
+                      return <img key={tipo.type.name} src={flying}/>;
                     case "ghost":
-                      return <img src={ghost}/>;
+                      return <img key={tipo.type.name} src={ghost}/>;
                     case "grass":
-                      return <img src={grass}/>;
+                      return <img key={tipo.type.name} src={grass}/>;
                     case "ground":
-                      return <img src={ground}/>;
+                      return <img key={tipo.type.name} src={ground}/>;
                     case "ice":
-                      return <img src={ice}/>;
+                      return <img key={tipo.type.name} src={ice}/>;
                     case "normal":
-                      return <img src={normal}/>;
+                      return <img key={tipo.type.name} src={normal}/>;
                     case "poison":
-                      return <img src={poison}/>;
+                      return <img key={tipo.type.name} src={poison}/>;
                     case "psychic":
-                      return <img src={psychic}/>;
+                      return <img key={tipo.type.name} src={psychic}/>;
                     case "rock":
-                      return <img src={rock}/>;
+                      return <img key={tipo.type.name} src={rock}/>;
                     case "steel": 
-                      return <img src={steel}/>;
+                      return <img key={tipo.type.name} src={steel}/>;
                     default:
-                      return <img src={water}/>
+                      return <img key={tipo.type.name} src={water}/>
                   }
                 })}
               </TypeContainer>
@@ -118,7 +118,7 @@ const Details = () => {
               <Images>
                 <PokeballImage src={pokeball} />
                 <PokemonImage
-                  src={pokemon.sprites.other.dream_world.front_default}
+                  src={pokemon.sprites.other.dream_world.front_default ? pokemon.sprites.other.dream_world.front_default : pokemon.sprites.other.home.front_default}
                 />
               </Images>
 
