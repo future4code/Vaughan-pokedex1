@@ -12,9 +12,9 @@ import { useNavigate } from "react-router-dom";
 import { goToDetails } from "../../routers/coordenation";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 
-const PokemonCard = ({ buttonAddRem, pokemonDetails  ,dataUp, isPokedex, buttonBattle }) => {
+const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBattle }) => {
   const navigate = useNavigate();
-  const { currentPage, setCurrentPage,numbersOfPokemonsAtHome ,setOffset, isLoading } =
+  const { currentPage, setCurrentPage, numbersOfPokemonsAtHome, setOffset, isLoading } =
     useContext(GlobalStateContext);
 
   const [pokemonBattle, setPokemonBattle] = useState([]);
@@ -34,7 +34,6 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails  ,dataUp, isPokedex, buttonB
   };
 
   const onClickBattle = (id, name) => {
-    console.log('funçao adicionar', id)
     if (pokemonBattle.length === 0) {
       setPokemonBattle([...pokemonBattle, id])
       setPokemonBattleNames([...pokemonBattleNames, name])
@@ -51,7 +50,6 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails  ,dataUp, isPokedex, buttonB
       setPokemonBattle([])
       alert(`${pokemonBattleNames[0][0].toUpperCase()}${pokemonBattleNames[0].slice(1)} ganhou com ${pokemonBattle[0]}!`)
       setPokemonBattleNames([])
-      console.log("")
     } else if (pokemonBattle.length === 2 && pokemonBattle[0] < pokemonBattle[1]) {
       setPokemonBattle([])
       alert(`${pokemonBattleNames[1][0].toUpperCase()}${pokemonBattleNames[1].slice(1)} ganhou com ${pokemonBattle[1]} pontos!`)
@@ -113,26 +111,24 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails  ,dataUp, isPokedex, buttonB
 
   return (
     <MainContainer>
-      {console.log("numbersOfPokemonsAtHome", numbersOfPokemonsAtHome)}
-     {numbersOfPokemonsAtHome ? <img style={{marginTop:"10%"}} src="https://c.tenor.com/M7VCcAaXbDQAAAAd/all-alone-pikachu.gif "/>  : <>
-     {/* {numbersOfPokemonsAtHome ? <img style={{marginTop:"10%"}} src="https://64.media.tumblr.com/a9a99820a00a1390121421e9f7d99f0c/tumblr_mmtbw0oM711qbuj9wo1_500.gifv"/>  : <> */}
-      {isLoading && <Loading color="primary" />}
-      {  (!isLoading   &&
-        !isPokedex && <PaginationStyled
-          count={56}
-          page={currentPage}
-          onChange={changeCurrentPage}
-          color='primary'
-        />)}
-      <DivContainer>{!isLoading && pokemons}</DivContainer>
-      {isLoading && <Loading color="primary" />}
-      {  (!isLoading   &&
-        !isPokedex && <PaginationStyled
-          count={56}
-          page={currentPage}
-          onChange={changeCurrentPage}
-          color='primary'
-        />)}</>}
+      {numbersOfPokemonsAtHome ? <img style={{ marginTop: "10%" }} src="https://c.tenor.com/M7VCcAaXbDQAAAAd/all-alone-pikachu.gif " /> : <>
+        {isLoading && <Loading color="primary" />}
+        {(!isLoading &&
+          !isPokedex && <PaginationStyled
+            count={56}
+            page={currentPage}
+            onChange={changeCurrentPage}
+            color='primary'
+          />)}
+        <DivContainer>{!isLoading && pokemons}</DivContainer>
+        {isLoading && <Loading color="primary" />}
+        {(!isLoading &&
+          !isPokedex && <PaginationStyled
+            count={56}
+            page={currentPage}
+            onChange={changeCurrentPage}
+            color='primary'
+          />)}</>}
     </MainContainer>
   );
 };

@@ -24,8 +24,12 @@ export const DivContainer = styled.div`
     grid-template-columns: repeat(3, 1fr);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
     grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 480px) {
+    grid-template-columns: 1fr;
 }
 `
 
@@ -47,8 +51,8 @@ export const CardContainer = styled.div`
         font-size: 1.5rem;
     }
     img{
-        max-width: 15vw;
-        max-height: 15vh;
+        max-width: 20vw;
+        max-height: 20vh;
         margin: 10px;
     }
 
@@ -59,10 +63,15 @@ export const CardContainer = styled.div`
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
     width: 45vw;
+}
+
+@media (max-width: 480px) {
+    width: 85vw;
     img{
-        max-width: 30vw;
+        max-width: 40vw;
+        max-height: 30vh;
     }
 }
 `
@@ -72,10 +81,16 @@ export const ImageContainer = styled.div`
     justify-content: center;
     width: 20vw;
     height: 20vh;
+
+@media (max-width: 480px) {
+    width: 80vw;
+    height: 30vh;
+}
 `
 
 export const ButtonContainer = styled.div`
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     button{
         margin: 10px;
@@ -92,8 +107,14 @@ export const ButtonContainer = styled.div`
         }
     }
 @media (max-width: 1000px) {
-    display: flex;
     flex-direction: column;
+}
+
+@media (max-width: 480px) {
+    flex-direction: row;
+    button{
+        padding: 15px;
+    }
 }
 
 `
