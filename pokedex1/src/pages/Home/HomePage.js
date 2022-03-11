@@ -5,7 +5,7 @@ import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { goToPokedex } from "../../routers/coordenation";
 
 const HomePage = () => {
-  const { pokemonDetails ,numbersOfPokemonsAtHome, setNumbersOfPokemonsAtHome ,setAdd, add } = useContext(GlobalStateContext);
+  const { pokemonDetails, numbersOfPokemonsAtHome, setNumbersOfPokemonsAtHome, setAdd, add } = useContext(GlobalStateContext);
 
   const dataUp = (id) => {
     const arrayAdd = [...add];
@@ -13,12 +13,12 @@ const HomePage = () => {
     setAdd(arrayAdd);
   };
 
- 
-  useEffect(() =>{
+
+  useEffect(() => {
     setNumbersOfPokemonsAtHome(false)
   }, [])
-   
-   
+
+
   const pokemonDetailsFromHome =
     pokemonDetails &&
     pokemonDetails.filter((item) => {
@@ -29,17 +29,14 @@ const HomePage = () => {
       }
     });
 
-    
+
 
 
   return (
     <div>
-      {console.log(pokemonDetailsFromHome)}
-      {console.log(pokemonDetails)}
-      {console.log("numbersOfPokemonsAtHome", numbersOfPokemonsAtHome)}
-      <Header 
-      isDetails={false}
-      title='Pokedex' goto={goToPokedex} />
+      <Header
+        isDetails={false}
+        title='Pokedex' goto={goToPokedex} />
       <PokemonCard
         buttonAddRem='Adicionar'
         pokemonDetails={pokemonDetailsFromHome}

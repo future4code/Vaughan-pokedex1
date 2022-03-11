@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Header from "../../components/Header/Header";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
-import { goToHomePage, goToReturn } from "../../routers/coordenation";
+import { goToReturn } from "../../routers/coordenation";
 import {
   NameContainer,
   Container,
@@ -21,13 +21,12 @@ import pokeball from '../../assets/images/pokeball.webp';
 const Details = () => {
   const { pokemonDetails, add, setAdd } = useContext(GlobalStateContext);
   const params = useParams();
-  console.log(pokemonDetails);
 
   const dataUp = (id) => {
-    if(!add.includes(id)){
-    const arrayAdd = [...add];
-    arrayAdd.push(id);
-    setAdd(arrayAdd);
+    if (!add.includes(id)) {
+      const arrayAdd = [...add];
+      arrayAdd.push(id);
+      setAdd(arrayAdd);
     } else {
       const arrayAdd = [...add];
       const arrayId = arrayAdd.splice(arrayAdd.indexOf(id), 1);
@@ -35,7 +34,6 @@ const Details = () => {
 
     }
   };
-
 
   let filterPokemon =
     pokemonDetails &&
@@ -63,7 +61,7 @@ const Details = () => {
 
             <ContainerContent>
               <Images>
-                <PokeballImage src={pokeball}/>
+                <PokeballImage src={pokeball} />
                 <PokemonImage src={pokemon.sprites.other.dream_world.front_default} />
               </Images>
 
@@ -124,11 +122,10 @@ const Details = () => {
   return (
     <div>
       <div>
-        {console.log(add)}
-        <Header 
-        isDetails="true"
-        dataUp={dataUp}
-        goto={goToReturn} title="Voltar" />
+        <Header
+          isDetails="true"
+          dataUp={dataUp}
+          goto={goToReturn} title="Voltar" />
         {filterPokemon}
       </div>
     </div>

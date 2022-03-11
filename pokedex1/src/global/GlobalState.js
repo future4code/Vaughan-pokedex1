@@ -1,13 +1,13 @@
 import { GlobalStateContext } from "./GlobalStateContext";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useRequestData from "../hooks/useRequestData";
 import { baseURL } from "../constants/baseURL";
 
 const GlobalState = (props) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [offset, setOffset] = useState(0);
-    const [add , setAdd] = React.useState([]);
-    const [numbersOfPokemonsAtHome , setNumbersOfPokemonsAtHome] = React.useState(false);
+    const [add, setAdd] = React.useState([]);
+    const [numbersOfPokemonsAtHome, setNumbersOfPokemonsAtHome] = React.useState(false);
     const [pokemonList, pokemonDetails, getPokemon, isLoading] = useRequestData([], `${baseURL}/pokemon/?limit=20&offset=${offset}`);
     const [pokemonListPokedex, pokemonDetailsPokedex] = useRequestData([], `${baseURL}/pokemon/?limit=1120`);
 
@@ -28,7 +28,7 @@ const GlobalState = (props) => {
     }
 
     return (
-        <GlobalStateContext.Provider value={ data }>
+        <GlobalStateContext.Provider value={data}>
             {props.children}
         </GlobalStateContext.Provider>
     )
