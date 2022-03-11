@@ -58,6 +58,14 @@ export const ContainerContent = styled.div`
     width: 80vw;
     justify-content: space-evenly;
     align-items: center;
+
+    @media (max-width: 1100px) {
+        width: 100vw;
+    }
+
+    @media (max-width: 870px) {
+        flex-direction: column;
+    }
 `
 
 export const TypeContainer = styled.div`
