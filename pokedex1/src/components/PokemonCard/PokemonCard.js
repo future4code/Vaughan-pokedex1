@@ -6,11 +6,13 @@ import {
   ImageContainer,
   MainContainer,
   PaginationStyled,
-  Loading
+  Loading,
+  EmptyPokedexImage
 } from "./styled";
 import { useNavigate } from "react-router-dom";
 import { goToDetails } from "../../routers/coordenation";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
+import PikachuAloneImage from "../../assets/images/all-alone-pikachu.gif"
 
 const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBattle }) => {
   const navigate = useNavigate();
@@ -37,7 +39,7 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBa
     if (pokemonBattle.length === 0) {
       setPokemonBattle([...pokemonBattle, id])
       setPokemonBattleNames([...pokemonBattleNames, name])
-      alert("Escolha outro Pokemon para Batalhar!")
+      alert(`Escolha outro Pokemon para batalhar com ${name[0].toUpperCase()}${name.slice(1)}!`)
     }
     if (pokemonBattle.length <= 1) {
       setPokemonBattle([...pokemonBattle, id])
@@ -48,11 +50,11 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBa
   const battleResults = () => {
     if (pokemonBattle.length === 2 && pokemonBattle[0] > pokemonBattle[1]) {
       setPokemonBattle([])
-      alert(`${pokemonBattleNames[0][0].toUpperCase()}${pokemonBattleNames[0].slice(1)} ganhou com ${pokemonBattle[0]}!`)
+      alert(`${pokemonBattleNames[0][0].toUpperCase()}${pokemonBattleNames[0].slice(1)} ganhou de ${pokemonBattleNames[1][0].toUpperCase()}${pokemonBattleNames[1].slice(1)} com ${pokemonBattle[0]} pontos!`)
       setPokemonBattleNames([])
     } else if (pokemonBattle.length === 2 && pokemonBattle[0] < pokemonBattle[1]) {
       setPokemonBattle([])
-      alert(`${pokemonBattleNames[1][0].toUpperCase()}${pokemonBattleNames[1].slice(1)} ganhou com ${pokemonBattle[1]} pontos!`)
+      alert(`${pokemonBattleNames[1][0].toUpperCase()}${pokemonBattleNames[1].slice(1)} ganhou de ${pokemonBattleNames[0][0].toUpperCase()}${pokemonBattleNames[0].slice(1)} com ${pokemonBattle[1]} pontos!`)
       setPokemonBattleNames([])
     } else if (pokemonBattle.length === 2 && pokemonBattle[0] === pokemonBattle[1]) {
       setPokemonBattle([])
@@ -108,10 +110,9 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBa
       );
     });
 
-
   return (
     <MainContainer>
-      {numbersOfPokemonsAtHome ? <img style={{ marginTop: "10%" }} src="https://c.tenor.com/M7VCcAaXbDQAAAAd/all-alone-pikachu.gif " /> : <>
+      {numbersOfPokemonsAtHome ? <EmptyPokedexImage src={PikachuAloneImage} alt="Pikachu Sozinho" /> : <>
         {isLoading && <Loading color="primary" />}
         {(!isLoading &&
           !isPokedex && <PaginationStyled
