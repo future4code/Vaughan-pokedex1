@@ -138,7 +138,6 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBa
             color='primary'
           />)}
         <DivContainer>{!isLoading && pokemons}</DivContainer>
-        {isLoading && <Loading color="primary" />}
         {(!isLoading &&
           !isPokedex && <PaginationStyled
             count={56}
