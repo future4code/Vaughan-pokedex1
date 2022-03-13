@@ -1,4 +1,4 @@
-# POKEDEX
+# <img src="https://img.icons8.com/color/48/000000/pokeball--v1.png"/> POKEDEX
 
 Projeto desenvolvido no curso da Labenu utilizando a API PokeAPI.
 Lista de todos os Pokemons presentes na API, podendo ver seus detalhes e adicioná-los na Pokedex.
