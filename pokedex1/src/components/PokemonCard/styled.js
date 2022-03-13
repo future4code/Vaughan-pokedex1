@@ -45,6 +45,20 @@ export const Loading = styled(CircularProgress)`
     margin: 30px;
 `
 
+export const BattleMessage = styled.p`
+    display: flex;
+    align-items: center;
+    background-color: rgba(222, 222, 222, .2);
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: .5em;
+    font-size: 1.3rem;
+    opacity: 1;
+    transition: opacity 1s ease-in;
+    padding-right: 20px;
+`
+
 export const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -57,6 +71,7 @@ export const CardContainer = styled.div`
     margin: 10px;
     p{
         font-size: 1.5rem;
+        text-transform: capitalize;
     }
     img{
         max-width: 20vw;

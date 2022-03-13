@@ -7,7 +7,8 @@ import {
   MainContainer,
   PaginationStyled,
   Loading,
-  EmptyPokedexImage
+  EmptyPokedexImage,
+  BattleMessage,
 } from "./styled";
 import { useNavigate } from "react-router-dom";
 import { goToDetails } from "../../routers/coordenation";
@@ -16,15 +17,12 @@ import PikachuAloneImage from "../../assets/images/all-alone-pikachu.gif"
 
 const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBattle }) => {
   const navigate = useNavigate();
-  const { currentPage, setCurrentPage, numbersOfPokemonsAtHome, setOffset, isLoading } =
+  const { currentPage, setCurrentPage, numbersOfPokemonsAtHome, setOffset, isLoading, error } =
     useContext(GlobalStateContext);
 
   const [pokemonBattle, setPokemonBattle] = useState([]);
   const [pokemonBattleNames, setPokemonBattleNames] = useState([]);
-
-  useEffect(() => {
-    battleResults()
-  }, [pokemonBattle])
+  const [pokemonBattleImages, setPokemonBattleImages] = useState([]);
 
   const changeCurrentPage = (event, number) => {
     setCurrentPage(number);
@@ -35,32 +33,23 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBa
     dataUp(id);
   };
 
-  const onClickBattle = (id, name) => {
+  const onClickBattle = (id, name, image) => {
     if (pokemonBattle.length === 0) {
       setPokemonBattle([...pokemonBattle, id])
       setPokemonBattleNames([...pokemonBattleNames, name])
-      alert(`Escolha outro Pokemon para batalhar com ${name[0].toUpperCase()}${name.slice(1)}!`)
+      setPokemonBattleImages([...pokemonBattleImages, image])
     }
     if (pokemonBattle.length <= 1) {
       setPokemonBattle([...pokemonBattle, id])
       setPokemonBattleNames([...pokemonBattleNames, name])
+      setPokemonBattleImages([...pokemonBattleImages, image])
     }
   };
 
-  const battleResults = () => {
-    if (pokemonBattle.length === 2 && pokemonBattle[0] > pokemonBattle[1]) {
-      setPokemonBattle([])
-      alert(`${pokemonBattleNames[0][0].toUpperCase()}${pokemonBattleNames[0].slice(1)} ganhou de ${pokemonBattleNames[1][0].toUpperCase()}${pokemonBattleNames[1].slice(1)} com ${pokemonBattle[0]} pontos!`)
-      setPokemonBattleNames([])
-    } else if (pokemonBattle.length === 2 && pokemonBattle[0] < pokemonBattle[1]) {
-      setPokemonBattle([])
-      alert(`${pokemonBattleNames[1][0].toUpperCase()}${pokemonBattleNames[1].slice(1)} ganhou de ${pokemonBattleNames[0][0].toUpperCase()}${pokemonBattleNames[0].slice(1)} com ${pokemonBattle[1]} pontos!`)
-      setPokemonBattleNames([])
-    } else if (pokemonBattle.length === 2 && pokemonBattle[0] === pokemonBattle[1]) {
-      setPokemonBattle([])
-      alert("Empatou!")
-      setPokemonBattleNames([])
-    };
+  const clickNewBattle = () => {
+    setPokemonBattle([])
+    setPokemonBattleNames([])
+    setPokemonBattleImages([])
   };
 
   const pokemons =
@@ -69,14 +58,12 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBa
       return (
         <CardContainer key={item.id}>
           <p>
-            {item.name[0].toUpperCase()}
-            {item.name.slice(1)}
+            {item.name}
           </p>
           <ImageContainer>
             {item.sprites.other.dream_world.front_default ?
               <img src={item.sprites.other.dream_world.front_default} alt={item.name} /> :
               <img src={item.sprites.other.home.front_default} alt={item.name} />}
-
           </ImageContainer>
 
           <ButtonContainer>
@@ -97,7 +84,7 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBa
                   for (let stat of item.stats) {
                     sum = sum + stat.base_stat
                   }
-                  onClickBattle(sum, item.name)
+                  onClickBattle(sum, item.name, item.sprites.front_default)
                 }}>
 
                   {buttonBattle}
@@ -113,6 +100,35 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBa
   return (
     <MainContainer>
       {numbersOfPokemonsAtHome ? <EmptyPokedexImage src={PikachuAloneImage} alt="Pikachu Sozinho" /> : <>
+        {pokemonBattle.length === 1 ?
+          <BattleMessage>Escolha outro Pokemon para batalhar com {pokemonBattleNames[0][0].toUpperCase()}
+            {pokemonBattleNames[0].slice(1)}!</BattleMessage> :
+          <></>}
+        {pokemonBattle[0] > pokemonBattle[1] ? <div>
+          <BattleMessage><img src={pokemonBattleImages[0]}/>{pokemonBattleNames[0][0].toUpperCase()}{pokemonBattleNames[0].slice(1)} ganhou
+            de {pokemonBattleNames[1][0].toUpperCase()}{pokemonBattleNames[1].slice(1)} com {pokemonBattle[0]} pontos!</BattleMessage>
+        </div>
+          :
+          <></>}
+        {pokemonBattle[0] < pokemonBattle[1] ? <div>
+          <BattleMessage><img src={pokemonBattleImages[1]}/>{pokemonBattleNames[1][0].toUpperCase()}{pokemonBattleNames[1].slice(1)} ganhou
+            de {pokemonBattleNames[0][0].toUpperCase()}{pokemonBattleNames[0].slice(1)} com {pokemonBattle[0]} pontos!</BattleMessage>
+        </div>
+          :
+          <></>}
+        {pokemonBattle.length === 2 && pokemonBattleNames[0] !== pokemonBattleNames[1] && pokemonBattle[0] === pokemonBattle[1] ? <div>
+          <BattleMessage>Empatou!</BattleMessage>
+        </div>
+          :
+          <></>}
+        {pokemonBattle.length === 2 && pokemonBattleNames[0] === pokemonBattleNames[1] ? <div>
+          <BattleMessage>Um pokemon não pode batalhar com si mesmo! Escolha outro.</BattleMessage>
+        </div>
+          :
+          <></>}
+        {pokemonBattle.length === 2 ? <ButtonContainer>
+          <button onClick={clickNewBattle}>Começar Nova Batalha</button>
+        </ButtonContainer> : <></>}
         {isLoading && <Loading color="primary" />}
         {(!isLoading &&
           !isPokedex && <PaginationStyled
@@ -130,6 +146,7 @@ const PokemonCard = ({ buttonAddRem, pokemonDetails, dataUp, isPokedex, buttonBa
             onChange={changeCurrentPage}
             color='primary'
           />)}</>}
+        {!isLoading && error && <p>Ocorreu um erro! Tente novamente.</p>}
     </MainContainer>
   );
 };

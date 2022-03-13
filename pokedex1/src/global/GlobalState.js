@@ -8,7 +8,7 @@ const GlobalState = (props) => {
     const [offset, setOffset] = useState(0);
     const [add, setAdd] = React.useState([]);
     const [numbersOfPokemonsAtHome, setNumbersOfPokemonsAtHome] = React.useState(false);
-    const [pokemonList, pokemonDetails, getPokemon, isLoading] = useRequestData([], `${baseURL}/pokemon/?limit=20&offset=${offset}`);
+    const [pokemonList, pokemonDetails, getPokemon, isLoading, error] = useRequestData([], `${baseURL}/pokemon/?limit=20&offset=${offset}`);
     const [pokemonListPokedex, pokemonDetailsPokedex] = useRequestData([], `${baseURL}/pokemon/?limit=1120`);
 
     const data = {
@@ -17,6 +17,7 @@ const GlobalState = (props) => {
         pokemonList,
         pokemonDetails,
         isLoading,
+        error,
         pokemonListPokedex,
         pokemonDetailsPokedex,
         currentPage,
