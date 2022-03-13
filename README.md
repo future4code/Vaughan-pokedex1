@@ -39,13 +39,11 @@ Site responsivo para mobile.
 ![image](https://user-images.githubusercontent.com/94693150/157980116-62ff8f26-c14c-4aeb-aad4-483523448fa9.png)
 ![image](https://user-images.githubusercontent.com/94693150/157980080-b78e0cc4-ec38-4848-820c-10c5eb0d8104.png)
 ![image](https://user-images.githubusercontent.com/94693150/157980211-c7792d9f-aa2b-4cc0-8dae-36dbb961f322.png)
+![image](https://user-images.githubusercontent.com/94693150/158077404-e1068441-ed9e-4c58-a99e-3f79c9a40961.png)
+![image](https://user-images.githubusercontent.com/94693150/158077420-fbe37d83-0cf2-4adf-9aad-d1fecc1e25c6.png)
 
 ### Mobile
 ![image](https://user-images.githubusercontent.com/94693150/157980273-f59a0708-2533-4ce7-9fb5-d9ee56b94b62.png)
 ![image](https://user-images.githubusercontent.com/94693150/157980350-48ed05f6-7185-4ea9-acb9-d5f9a097aafd.png)
 ![image](https://user-images.githubusercontent.com/94693150/157980317-53bd3769-5a5d-47f9-b580-df9ca1c64ade.png)
 ![image](https://user-images.githubusercontent.com/94693150/157980446-9728c90c-6c45-40d4-88b9-7ead7d99d18c.png)
-
-### Alerts da Batalha
-![image](https://user-images.githubusercontent.com/94693150/157980548-d02fec63-69ed-4d79-baba-708509d3abe0.png)
-![image](https://user-images.githubusercontent.com/94693150/157980589-6f16d098-64fe-4451-afc1-5772b32e5993.png)
